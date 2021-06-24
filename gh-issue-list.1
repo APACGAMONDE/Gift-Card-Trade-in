@@ -1,0 +1,98 @@
+.nh
+.TH "gh" "1" "Jun 2021" "" ""
+
+.SH NAME
+.PP
+gh\-issue\-list \- List and filter issues in this repository
+
+
+.SH SYNOPSIS
+.PP
+\fBgh issue list [flags]\fP
+
+
+.SH DESCRIPTION
+.PP
+List and filter issues in this repository
+
+
+.SH OPTIONS
+.PP
+\fB\-a\fP, \fB\-\-assignee\fP=""
+	Filter by assignee
+
+.PP
+\fB\-A\fP, \fB\-\-author\fP=""
+	Filter by author
+
+.PP
+\fB\-q\fP, \fB\-\-jq\fP=""
+	Filter JSON output using a jq \fB\fCexpression\fR
+
+.PP
+\fB\-\-json\fP=[]
+	Output JSON with the specified \fB\fCfields\fR
+
+.PP
+\fB\-l\fP, \fB\-\-label\fP=[]
+	Filter by labels
+
+.PP
+\fB\-L\fP, \fB\-\-limit\fP=30
+	Maximum number of issues to fetch
+
+.PP
+\fB\-\-mention\fP=""
+	Filter by mention
+
+.PP
+\fB\-m\fP, \fB\-\-milestone\fP=""
+	Filter by milestone \fB\fCnumber\fR or \fB\fCtitle\fR
+
+.PP
+\fB\-S\fP, \fB\-\-search\fP=""
+	Search issues with \fB\fCquery\fR
+
+.PP
+\fB\-s\fP, \fB\-\-state\fP="open"
+	Filter by state: {open|closed|all}
+
+.PP
+\fB\-t\fP, \fB\-\-template\fP=""
+	Format JSON output using a Go template
+
+.PP
+\fB\-w\fP, \fB\-\-web\fP[=false]
+	Open the browser to list the issue(s)
+
+
+.SH OPTIONS INHERITED FROM PARENT COMMANDS
+.PP
+\fB\-\-help\fP[=false]
+	Show help for command
+
+.PP
+\fB\-R\fP, \fB\-\-repo\fP=""
+	Select another repository using the \fB\fC[HOST/]OWNER/REPO\fR format
+
+
+.SH EXAMPLE
+.PP
+.RS
+
+.nf
+$ gh issue list \-l "bug" \-l "help wanted"
+$ gh issue list \-A monalisa
+$ gh issue list \-a @me
+$ gh issue list \-\-web
+$ gh issue list \-\-milestone "The big 1.0"
+$ gh issue list \-\-search "error no:assignee sort:created\-asc"
+
+
+.fi
+.RE
+
+
+.SH SEE ALSO
+.PP
+\fBgh\-issue(1)\fP

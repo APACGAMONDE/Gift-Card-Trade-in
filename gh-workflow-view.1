@@ -1,0 +1,61 @@
+.nh
+.TH "gh" "1" "Jun 2021" "" ""
+
+.SH NAME
+.PP
+gh\-workflow\-view \- View the summary of a workflow
+
+
+.SH SYNOPSIS
+.PP
+\fBgh workflow view [ |  | ] [flags]\fP
+
+
+.SH DESCRIPTION
+.PP
+View the summary of a workflow
+
+
+.SH OPTIONS
+.PP
+\fB\-r\fP, \fB\-\-ref\fP=""
+	The branch or tag name which contains the version of the workflow file you'd like to view
+
+.PP
+\fB\-w\fP, \fB\-\-web\fP[=false]
+	Open workflow in the browser
+
+.PP
+\fB\-y\fP, \fB\-\-yaml\fP[=false]
+	View the workflow yaml file
+
+
+.SH OPTIONS INHERITED FROM PARENT COMMANDS
+.PP
+\fB\-\-help\fP[=false]
+	Show help for command
+
+.PP
+\fB\-R\fP, \fB\-\-repo\fP=""
+	Select another repository using the \fB\fC[HOST/]OWNER/REPO\fR format
+
+
+.SH EXAMPLE
+.PP
+.RS
+
+.nf
+# Interactively select a workflow to view
+$ gh workflow view
+
+# View a specific workflow
+$ gh workflow view 0451
+
+
+.fi
+.RE
+
+
+.SH SEE ALSO
+.PP
+\fBgh\-workflow(1)\fP

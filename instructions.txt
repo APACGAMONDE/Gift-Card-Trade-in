@@ -1,0 +1,45 @@
+Accurics CLI Installation Steps
+
+Prerequisite :- config.zip file and accurics cli file downloaded from accurics web console environment details
+
+Installation and configuration Steps for Linux 
+
+1.	Copy the accurics CLI into your usr/local/bin folder 
+
+		cp accurics /usr/local/bin/
+
+
+2.	Copy "config.zip" into the folder where you run "terraform plan" or "terragrunt plan" and unzip
+
+		cp config.zip <terraform folder path>
+		unzip config.zip
+
+	
+3.	Follow the sequence of commands needed for you to initialize terraform:
+
+		accurics init [any shell scripts required to set variables, etc.]
+
+
+4.	Finally, use the following command to scan your terraform/terragrunt code 
+		For Terraform code - 
+			accurics plan -config=<config file name> [optional variables that you would pass in terraform plan]
+		
+		For Terragrunt code -
+			accurics tgplan -config=<config file name>
+			accurics tgplanall -config=<config file name>
+
+5. For CFT plan -
+	accurics plan cf -config=<config file name> -templateFile=<template file name>[mandatory] -paramFile=<paramfile file name> -stackName=<stack name>
+	Examples:
+		- accurics plan cf -config=config -templateFile=template.json -paramFile=params.json stackName=mystack
+		- accurics plan cf -config=config -templateFile=template.json
+		- accurics plan cf -config=config -templateRepo=. (To recursive scan all directories)
+	templateFile is mandatory, paramFile and stackName are optional
+
+
+That's it! Now you can view your scan results on Accurics Platform.
+
+NOTE: Accurics CLI currently supports Terraform version 0.11.x, 0.12.x, and above, 
+                                      Terragrunt version 0.23.x and above 
+
+© 2021 Accurics, Inc. All rights reserved

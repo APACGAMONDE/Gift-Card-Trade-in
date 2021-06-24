@@ -1,0 +1,91 @@
+.nh
+.TH "gh" "1" "Jun 2021" "" ""
+
+.SH NAME
+.PP
+gh\-workflow\-run \- Run a workflow by creating a workflow\_dispatch event
+
+
+.SH SYNOPSIS
+.PP
+\fBgh workflow run [ | ] [flags]\fP
+
+
+.SH DESCRIPTION
+.PP
+Create a workflow\_dispatch event for a given workflow.
+
+.PP
+This command will trigger GitHub Actions to run a given workflow file.  The given workflow file must
+support a workflow\_dispatch 'on' trigger in order to be run in this way.
+
+.PP
+If the workflow file supports inputs, they can be specified in a few ways:
+
+.RS
+.IP \(bu 2
+Interactively
+.IP \(bu 2
+via \-f or \-F flags
+.IP \(bu 2
+As JSON, via STDIN
+
+.RE
+
+
+.SH OPTIONS
+.PP
+\fB\-F\fP, \fB\-\-field\fP=[]
+	Add a string parameter in \fB\fCkey=value\fR format, respecting @ syntax
+
+.PP
+\fB\-\-json\fP[=false]
+	Read workflow inputs as JSON via STDIN
+
+.PP
+\fB\-f\fP, \fB\-\-raw\-field\fP=[]
+	Add a string parameter in \fB\fCkey=value\fR format
+
+.PP
+\fB\-r\fP, \fB\-\-ref\fP=""
+	The branch or tag name which contains the version of the workflow file you'd like to run
+
+
+.SH OPTIONS INHERITED FROM PARENT COMMANDS
+.PP
+\fB\-\-help\fP[=false]
+	Show help for command
+
+.PP
+\fB\-R\fP, \fB\-\-repo\fP=""
+	Select another repository using the \fB\fC[HOST/]OWNER/REPO\fR format
+
+
+.SH EXAMPLE
+.PP
+.RS
+
+.nf
+# Have gh prompt you for what workflow you'd like to run and interactively collect inputs
+$ gh workflow run
+
+# Run the workflow file 'triage.yml' at the remote's default branch
+$ gh workflow run triage.yml
+
+# Run the workflow file 'triage.yml' at a specified ref
+$ gh workflow run triage.yml \-\-ref my\-branch
+
+# Run the workflow file 'triage.yml' with command line inputs
+$ gh workflow run triage.yml \-f name=scully \-f greeting=hello
+
+# Run the workflow file 'triage.yml' with JSON via standard input
+$ echo '{"name":"scully", "greeting":"hello"}' | gh workflow run triage.yml \-\-json
+
+
+.fi
+.RE
+
+
+.SH SEE ALSO
+.PP
+\fBgh\-workflow(1)\fP

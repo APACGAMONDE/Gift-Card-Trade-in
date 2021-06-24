@@ -1,0 +1,57 @@
+.nh
+.TH "gh" "1" "Jun 2021" "" ""
+
+.SH NAME
+.PP
+gh\-run\-watch \- Watch a run until it completes, showing its progress
+
+
+.SH SYNOPSIS
+.PP
+\fBgh run watch  [flags]\fP
+
+
+.SH DESCRIPTION
+.PP
+Watch a run until it completes, showing its progress
+
+
+.SH OPTIONS
+.PP
+\fB\-\-exit\-status\fP[=false]
+	Exit with non\-zero status if run fails
+
+.PP
+\fB\-i\fP, \fB\-\-interval\fP=3
+	Refresh interval in seconds
+
+
+.SH OPTIONS INHERITED FROM PARENT COMMANDS
+.PP
+\fB\-\-help\fP[=false]
+	Show help for command
+
+.PP
+\fB\-R\fP, \fB\-\-repo\fP=""
+	Select another repository using the \fB\fC[HOST/]OWNER/REPO\fR format
+
+
+.SH EXAMPLE
+.PP
+.RS
+
+.nf
+# Watch a run until it's done
+gh run watch
+
+# Run some other command when the run is finished
+gh run watch \&\& notify\-send "run is done!"
+
+
+.fi
+.RE
+
+
+.SH SEE ALSO
+.PP
+\fBgh\-run(1)\fP

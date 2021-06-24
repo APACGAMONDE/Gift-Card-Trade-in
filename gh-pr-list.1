@@ -1,0 +1,102 @@
+.nh
+.TH "gh" "1" "Jun 2021" "" ""
+
+.SH NAME
+.PP
+gh\-pr\-list \- List and filter pull requests in this repository
+
+
+.SH SYNOPSIS
+.PP
+\fBgh pr list [flags]\fP
+
+
+.SH DESCRIPTION
+.PP
+List and filter pull requests in this repository
+
+
+.SH OPTIONS
+.PP
+\fB\-a\fP, \fB\-\-assignee\fP=""
+	Filter by assignee
+
+.PP
+\fB\-A\fP, \fB\-\-author\fP=""
+	Filter by author
+
+.PP
+\fB\-B\fP, \fB\-\-base\fP=""
+	Filter by base branch
+
+.PP
+\fB\-q\fP, \fB\-\-jq\fP=""
+	Filter JSON output using a jq \fB\fCexpression\fR
+
+.PP
+\fB\-\-json\fP=[]
+	Output JSON with the specified \fB\fCfields\fR
+
+.PP
+\fB\-l\fP, \fB\-\-label\fP=[]
+	Filter by labels
+
+.PP
+\fB\-L\fP, \fB\-\-limit\fP=30
+	Maximum number of items to fetch
+
+.PP
+\fB\-S\fP, \fB\-\-search\fP=""
+	Search pull requests with \fB\fCquery\fR
+
+.PP
+\fB\-s\fP, \fB\-\-state\fP="open"
+	Filter by state: {open|closed|merged|all}
+
+.PP
+\fB\-t\fP, \fB\-\-template\fP=""
+	Format JSON output using a Go template
+
+.PP
+\fB\-w\fP, \fB\-\-web\fP[=false]
+	Open the browser to list the pull requests
+
+
+.SH OPTIONS INHERITED FROM PARENT COMMANDS
+.PP
+\fB\-\-help\fP[=false]
+	Show help for command
+
+.PP
+\fB\-R\fP, \fB\-\-repo\fP=""
+	Select another repository using the \fB\fC[HOST/]OWNER/REPO\fR format
+
+
+.SH EXAMPLE
+.PP
+.RS
+
+.nf
+List PRs authored by you
+$ gh pr list \-\-author @me
+
+List PRs assigned to you
+$ gh pr list \-\-assignee @me
+
+List PRs by label, combining multiple labels with AND
+$ gh pr list \-\-label bug \-\-label "priority 1"
+
+List PRs using search syntax
+$ gh pr list \-\-search "status:success review:required"
+
+Open the list of PRs in a web browser
+$ gh pr list \-\-web
+ 	
+
+.fi
+.RE
+
+
+.SH SEE ALSO
+.PP
+\fBgh\-pr(1)\fP
